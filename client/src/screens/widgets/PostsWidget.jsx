@@ -36,16 +36,16 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       getPosts();
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  console.log(posts)
 
   return (
     <>
-      {//destructure the posts that we get
-      posts.map(
+      {Object.values(posts).map(
         ({
           _id,
           userId,
-          firstName,
-          lastName,
+          f_Name,
+          l_Name,
           description,
           location,
           picturePath,
@@ -57,7 +57,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
             key={_id}
             postId={_id}
             postUserId={userId}
-            name={`${firstName} ${lastName}`}
+            name={`${f_Name} ${l_Name}`}
             description={description}
             location={location}
             picturePath={picturePath}
@@ -68,7 +68,9 @@ const PostsWidget = ({ userId, isProfile = false }) => {
         )
       )}
     </>
+
   );
 };
+
 
 export default PostsWidget;
